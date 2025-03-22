@@ -8,7 +8,7 @@ services:
 
       context: .
       dockerfile: Dockerfile
-    command: make dev
+    command: test
     ports:
       - "8080:8080"
 

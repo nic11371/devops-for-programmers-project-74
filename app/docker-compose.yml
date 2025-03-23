@@ -7,9 +7,12 @@ services:
     build:
 
       context: .
+
       dockerfile: Dockerfile
-    command: dev
-    
+
+    command: make test
     ports:
       - "8080:8080"
+    volumes:
+      - ".:/app"
     image: nic11371/devops-for-programmers-project-74

@@ -1,4 +1,4 @@
-FROM node:20.12.2
+FROM node:20
 
 WORKDIR /app
 
@@ -13,4 +13,4 @@ EXPOSE 8080
 ENV NODE_ENV=production
 RUN make build
 
-CMD make dev
+CMD make start

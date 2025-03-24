@@ -1,0 +1,5 @@
+FROM node:20
+
+WORKDIR /app
+
+ENV FASTIFY_ADDRESS=0.0.0.0

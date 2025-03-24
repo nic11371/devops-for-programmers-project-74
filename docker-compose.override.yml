@@ -8,9 +8,9 @@ services:
 
       context: .
       dockerfile: Dockerfile
-    command: make dev
     ports:
       - "8080:8080"
-
+    working_dir: /app
+    command: make start
     volumes:
-      - ".:/app"
+      - "./app:/app"

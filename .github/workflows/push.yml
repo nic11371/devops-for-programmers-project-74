@@ -8,7 +8,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run tests
-        run: docker-compose -f docker-compose.yml up --abort-on-container-exit
+        run: make ci
 
       - name: Build prod
         run: make build

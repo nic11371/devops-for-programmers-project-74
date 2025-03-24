@@ -1,23 +1,23 @@
-compose-setup:
+setup:
 	docker-compose run --rm app make setup
 
-compose-up-exist:
+up-exist:
 	docker-compose up --abort-on-container-exist
 
-compose-up:
+up:
 	docker-compose up
 
-compose-down:
+down:
 	docker-compose down
 
-compose-test:
+ci:
 	docker-compose -f docker-compose.yml up --abort-on-container-exit
 
-compose-build:
+build:
 	docker-compose -f docker-compose.yml build app
 
-compose-push:
+push:
 	docker-compose -f docker-compose.yml push app
 
-compose-up-production:
+up-development:
 	docker run -p 8080:8080 -e NODE_ENV=development nic11371/devops-for-programmers-project-74 make dev

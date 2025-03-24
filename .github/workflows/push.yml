@@ -11,7 +11,7 @@ jobs:
         run: make ci
 
       - name: Build prod
-        run: make build
+        run: make ci-build
 
       - name: Login to docker hub
         uses: docker/login-action@v1

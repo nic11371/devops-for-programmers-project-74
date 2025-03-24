@@ -23,10 +23,11 @@ services:
 
     volumes:
       - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
-      - caddy_config:/config
     ports:
       - "80:80"
       - "443:443"
     depends_on:
       - app
+volumes:
+  - caddy_data:/data
+  - caddy_config:/config

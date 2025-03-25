@@ -9,11 +9,10 @@ services:
       dockerfile: Dockerfile.production
     image: nic11371/devops-for-programmers-project-74
     environment:
-      POSTGRES_HOST: db
-      POSTGRES_PORT: 5432
-      POSTGRES_NAME: postgres
-      POSTGRES_USERNAME: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST: ${DATABASE_HOST}
+      POSTGRES_NAME: ${DATABASE_NAME}
+      POSTGRES_USERNAME: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     command: make test
     depends_on:
       - db
@@ -23,9 +22,9 @@ services:
     volumes:
         - pgdata:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_HOST}
+      POSTGRES_USER: ${DATABASE_USERNAME}
 
     restart: always
 

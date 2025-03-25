@@ -6,6 +6,9 @@ jobs:
     steps:
       - name: Clone repo
         uses: actions/checkout@v4
+    
+      - name: Depencies
+        run: npm install -g sequelize-cli
 
       - name: Run tests
         run: make ci

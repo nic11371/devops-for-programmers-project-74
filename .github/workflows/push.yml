@@ -8,7 +8,7 @@ jobs:
         uses: actions/checkout@v4
     
       - name: Depencies
-        run: npm install -g sequelize-cli
+        run: npm install equelize-cli
 
       - name: Run tests
         run: make ci

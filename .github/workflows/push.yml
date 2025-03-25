@@ -6,9 +6,6 @@ jobs:
     steps:
       - name: Clone repo
         uses: actions/checkout@v4
-    
-      - name: Depencies
-        run: make setup
 
       - name: Run tests
         run: make ci

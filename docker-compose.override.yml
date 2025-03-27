@@ -5,29 +5,22 @@ services:
 
   app:
     build:
-
       context: .
       dockerfile: Dockerfile
+    volumes:
+      - ./app:/app
     ports:
       - "8080:8080"
-    working_dir: /app
     command: make dev
-    volumes:
-      - "./app:/app"
 
   caddy:
-    build:
-
-      context: .
+    image: caddy
+    depends_on: [app]
+    volumes:
+      - "./services/caddy/Caddyfile:/etc/caddy/Caddyfile"
     ports:
       - "80:80"
       - "443:443"
-    volumes:
-      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
-      - caddy_config:/config
-    depends_on:
-      - app
 volumes:
   caddy_data:
   caddy_config:

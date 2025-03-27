@@ -3,6 +3,7 @@ Requirements
 docker
 docker compose V2
 ruby >= 3.0.0
+
 make
 Steps
 Add to /etc/hosts: 127.0.0.1 code-basics.test

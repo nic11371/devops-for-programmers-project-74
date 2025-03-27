@@ -1,6 +1,12 @@
 name: run tests and deploy
 on: push
 jobs:
+  run_postgres:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run PostgreSQL command
+        run: psql -U postgres -c 'SELECT * FROM mytable;'
   test-and-deploy:
     runs-on: ubuntu-latest
     steps:

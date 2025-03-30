@@ -4,7 +4,7 @@ setup:
 up-exist:
 	docker compose up --abort-on-container-exist
 
-up:
+start:
 	docker compose up
 
 down:
@@ -12,6 +12,10 @@ down:
 
 ci:
 	docker compose -f docker-compose.yml up --abort-on-container-exit
+
+test:
+	docker compose -f docker-compose.yml up --abort-on-container-exit
+
 
 ci-build:
 	docker compose -f docker-compose.yml build app

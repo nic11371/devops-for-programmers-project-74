@@ -14,6 +14,7 @@ Some lsp servers are fully workable only when the root dir is the same inside an
 
 Prepare pulling image locally
 
+
 Open ./app/lib/docker_exercise_api.rb
 Find def self.download(lang_name) line
 Comment or remove ok = system("docker pull #{image_name(lang_name)}") line

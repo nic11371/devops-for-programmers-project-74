@@ -51,4 +51,5 @@ make -C k8s helm-upgrade-app
 
 
 ### Hexlet tests and linter status:
+[![push](https://github.com/nic11371/devops-for-programmers-project-74/actions/workflows/push.yml/badge.svg)](https://github.com/nic11371/devops-for-programmers-project-74/actions/workflows/push.yml)
 [![Actions Status](https://github.com/nic11371/devops-for-programmers-project-74/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/nic11371/devops-for-programmers-project-74/actions)

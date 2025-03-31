@@ -1,53 +1,65 @@
-Setup
-Requirements
-docker
-docker compose V2
-ruby >= 3.0.0
+<div align="center">
+  <h1>Justify blog</h1>
+</div>
+___
 
-make
-Steps
-Add to /etc/hosts: 127.0.0.1 code-basics.test
+## Requirements
+___
 
-Clone project
+* NodeJs v20
+* Sqlite or PostrgeSQL
 
-Some lsp servers are fully workable only when the root dir is the same inside and outside the container. That is why we set WORKDIR to /opt/projects/hexlet-basics. So, if it is possible, clone this project to that directory.
+## Commands
+___
 
-Prepare pulling image locally
+```
+make setup
+make dev
+make test
+```
 
+## Run tests with Postgres
+___
 
-Open ./app/lib/docker_exercise_api.rb
-Find def self.download(lang_name) line
-Comment or remove ok = system("docker pull #{image_name(lang_name)}") line
-Add new line ok = true below
+To run tests with Postgres, you need to edit ***config/config.cjs*** and under the `test` key comment out the use of SQLite and uncomment the environment variables
+
+```
+  // test: {
+  //   dialect: 'sqlite',
+  //   storage: './database.test.sqlite',
+  // },
+  test: {
+    dialect: 'postgres',
+    database: process.env.DATABASE_NAME,
+    username: process.env.DATABASE_USERNAME,
+    password: process.env.DATABASE_PASSWORD,
+    port: process.env.DATABASE_PORT,
+    host: process.env.DATABASE_HOST,
+  },
+```
+
+In it specify the data to connect to the database
+
+```
+DATABASE_NAME=postgres
+DATABASE_USERNAME=postgres
+DATABASE_PASSWORD=postgres
+DATABASE_PORT=5432
+DATABASE_HOST=localhost
+```
+
+## Running an application with Postgres (production)
+___
+
+Export environment variables to work with the database or prepare a .env file with variables
+
 Run
 
-make project-setup
-make compose # run server
-# open code-basics.test
-
-make app-test # run tests
-
-# load language
-# make app-language-load L=php
-
-make app-db-prepare # sometimes, when fixtures were changed
-To manage loaded languages and set other settings, you need to sign in (login: full@test.io, password: password)
-
-Production
-Kube access
-
-# make k8s-macos-setup or make k8s-ubuntu-setup
-export TWC_TOKEN=<your token>
-Deploy
-Create new tag via command:
-
-make next-tag
-Wait notification about ready tag in Slack channel #sideprojects-code-auto or wait Github Actions
-
-Change version in k8s/hb-app-chart/values.yaml and then:
-
-make -C k8s helm-upgrade-app
-
+```
+make ci-build
+make push
+make start
+```
 
 
 ### Hexlet tests and linter status:

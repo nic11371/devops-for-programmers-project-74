@@ -1,16 +1,13 @@
 <div align="center">
   <h1>Justify blog</h1>
 </div>
-___
 
 ## Requirements
-___
 
 * NodeJs v20
 * Sqlite or PostrgeSQL
 
 ## Commands
-___
 
 ```
 make setup
@@ -19,7 +16,6 @@ make test
 ```
 
 ## Run tests with Postgres
-___
 
 To run tests with Postgres, you need to edit ***config/config.cjs*** and under the `test` key comment out the use of SQLite and uncomment the environment variables
 
@@ -49,7 +45,6 @@ DATABASE_HOST=localhost
 ```
 
 ## Running an application with Postgres (production)
-___
 
 Export environment variables to work with the database or prepare a .env file with variables
 
